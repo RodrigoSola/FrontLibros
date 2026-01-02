@@ -41,7 +41,7 @@ const sorted = filtered.sort((a, b) => {
   const fetchBooks = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${API_URL}/get`);
+      const response = await fetch(`${API_URL}/api/books/get`);
       const data = await response.json();
       setBooks(data.books || []);
       setError('');
@@ -72,8 +72,8 @@ const sorted = filtered.sort((a, b) => {
     try {
       setLoading(true);
       const url = editingBook 
-        ? `${API_URL}/update/${editingBook._id}`
-        : `${API_URL}/create`;
+        ? `${API_URL}/api/books/update/${editingBook._id}`
+        : `${API_URL}/api/books/create`;
       
       const method = editingBook ? 'PUT' : 'POST';
       
@@ -121,7 +121,7 @@ const sorted = filtered.sort((a, b) => {
 
     try {
       setLoading(true);
-      const response = await fetch(`${API_URL}/delete/${id}`, {
+      const response = await fetch(`${API_URL}/api/books/delete/${id}`, {
         method: 'DELETE'
       });
 
