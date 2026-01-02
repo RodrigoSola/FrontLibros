@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Plus, Edit2, Trash2, X, Save } from 'lucide-react';
 import './App.css';
- const API_URL = process.env.REACT_APP_API_URL || 'https://backlibros.onrender.com/api/books';
+ const API_URL = import.meta.env.VITE_API_URL || 'https://backlibros.onrender.com/api/books';
 
 export default function BooksManagement() {
   const [books, setBooks] = useState([]);
